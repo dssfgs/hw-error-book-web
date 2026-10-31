@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>錯題登記 · HW Error Book</title>
+  <link rel="stylesheet" href="assets/app.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>錯題登記</h1>
+      <p>勾選作業錯題 → 寫入 Google Sheet → 之後同步出每人鞏固卷</p>
+      <p id="catalogMeta" style="margin-top:0.35rem;color:var(--muted);font-size:0.85rem;"></p>
+    </header>
+
+    <section class="card">
+      <h2>① 學生／作業</h2>
+      <div class="grid">
+        <label>班別 class
+          <input id="className" type="text" placeholder="例如 2A" autocomplete="off" />
+        </label>
+        <label>學號 student_id *
+          <input id="studentId" type="text" placeholder="例如 S001" required autocomplete="off" />
+        </label>
+        <label>姓名 student_name
+          <input id="studentName" type="text" placeholder="例如 陳大文" autocomplete="off" />
+        </label>
+        <label>語言 lang
+          <select id="lang">
+            <option value="zh" selected>中文 zh</option>
+            <option value="en">英文 en</option>
+          </select>
+        </label>
+        <label>作業標籤 homework_id
+          <input id="homeworkId" type="text" placeholder="例如 F2_不等式_ws1" autocomplete="off" />
+        </label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>② 揀錯題（@hw id）</h2>
+      <div class="filters">
+        <label>Form
+          <select id="formSel"></select>
+        </label>
+        <label>Topic
+          <select id="topicSel"></select>
+        </label>
+        <label>Type
+          <select id="typeSel"></select>
+        </label>
+        <label class="search">搜尋 id／topic／type
+          <input id="search" type="search" placeholder="輸入關鍵字" />
+        </label>
+      </div>
+      <div id="qlist" class="qlist" aria-live="polite"></div>
+      <div class="actions">
+        <button type="button" class="primary" id="submitBtn">提交錯題到 Sheet</button>
+        <button type="button" class="ghost" id="clearBtn">清空選擇</button>
+        <span class="selected-count" id="selectedCount">已選 0 題</span>
+      </div>
+    </section>
+
+    <div id="banner" class="banner" role="status"></div>
+
+    <footer>
+      設定：編輯 <code>config.js</code> 嘅 <code>webAppUrl</code>。題庫目錄由
+      <code>scripts/build_questions_catalog.py</code> 產生（唔含題身）。
+    </footer>
+  </div>
+  <script src="config.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
