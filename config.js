@@ -1,7 +1,4 @@
-// Deploy Apps Script as Web App, then paste the /exec URL here.
-// Example: https://script.google.com/macros/s/XXXX/exec
-window.ERROR_BOOK_CONFIG = {
-  webAppUrl: "YOUR_WEB_APP_URL",
-  // Optional: default homework label shown in the form
-  defaultHomeworkId: "",
+/** Paste the Apps Script Web App /exec URL after deploy. */
+window.HW_ERROR_BOOK_CONFIG = {
+  webAppUrl: "https://script.google.com/macros/s/AKfycbwGdkc-OoJN8Jr5wlmTnc4xgzb7QoYysZWTPYoSP1sL568UzPsZ0T8F4FnrculIXwED/exec",
 };
